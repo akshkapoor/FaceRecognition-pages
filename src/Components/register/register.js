@@ -20,23 +20,7 @@ class Register extends React.Component{
         this.setState({passwordr:event.target.value})
     }
 
-    onRegister=()=>{
-
-        fetch('http://localhost:3001/register',{
-            method:'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                name:this.state.namer,
-                email: this.state.emailr,
-                password: this.state.passwordr
-              })
-        })
-        this.props.fetchinfo_user(this.state.namer,this.state.emailr)
-        this.props.fetchinfo_entries(0)
-        this.props.onRouteChange('home')
-
-
-}
+    onRegister=()=>this.props.onRouteChange('home')
 
     render(){
         return(

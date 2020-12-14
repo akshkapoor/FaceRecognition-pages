@@ -11,25 +11,7 @@ class Signin extends React.Component{
         }
     }
 
-    onSignIn=()=>{
-        fetch('http://localhost:3001/signin',{
-            method:'post',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                email: this.state.email,
-                password: this.state.password
-              })
-        })
-        .then(response=>response.json())
-        .then(data=>{
-            if(data.status==="Success"){
-                this.props.fetchinfo_user(data.user,data.email)
-                this.props.fetchinfo_entries(data.entries)
-                this.props.onRouteChange('home')
-            }
-        })
-        .catch("Sign In failed")
-    };
+    onSignIn=()=>this.props.onRouteChange('home');
 
     onEmailChange=(event)=>{
         //console.log(event.target.value)
